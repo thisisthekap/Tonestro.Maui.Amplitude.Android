@@ -1,0 +1,1 @@
+# Tonestro.Maui.Amplitude.Android
