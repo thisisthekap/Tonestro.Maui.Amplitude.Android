@@ -1,0 +1,13 @@
+﻿<metadata>
+    <remove-node path="/api/package[@name='com.amplitude.security']/class[@name='MD5']"/>
+
+    <remove-node path="/api/package[@name='com.amplitude.api']/class[@name='DeviceInfo']/field[@name='OS_NAME']"/>
+
+    <remove-node path="/api/package[@name='com.amplitude.api']/class[@name='AmplitudeClient']/field[@name='deviceId']"/>
+    <remove-node path="/api/package[@name='com.amplitude.api']/class[@name='AmplitudeClient']/field[@name='userId']"/>
+
+    <remove-node
+            path="/api/package[@name='com.amplitude.api']/class[@name='Identify']/field[@name='userPropertiesOperations']"/>
+
+    <attr path="/api/package[@name='com.amplitude.api']/class[@name='DatabaseHelper']" name="visibility">public</attr>
+</metadata>

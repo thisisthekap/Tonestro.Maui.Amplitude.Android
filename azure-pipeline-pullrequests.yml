@@ -1,0 +1,28 @@
+pr:
+  - main
+
+pool:
+  vmImage: 'macOS-13'
+
+steps:
+
+- bash: |
+    echo "##vso[build.updatebuildnumber]pullrequests-tonestro-maui-amplitude-android-$(Build.SourceBranchName)-$(Build.BuildId)"
+  displayName: Set Build Number
+
+- bash: |
+    cd Tonestro.Maui.Amplitude.Android
+    sudo dotnet workload restore
+    dotnet restore
+    dotnet build --configuration Release
+    dotnet pack --configuration Release
+  displayName: Build Release Nuget
+
+- bash: |
+    cd Tonestro.Maui.Amplitude.Android.UsageChecker
+    sudo dotnet workload restore
+    dotnet restore
+    dotnet build --configuration Release
+    dotnet pack --configuration Release
+    dotnet publish -f net7.0-android --configuration Release -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=usagechecker.jks -p:AndroidSigningKeyAlias=usagechecker -p:AndroidSigningKeyPass=usagechecker -p:AndroidSigningStorePass=usagechecker
+  displayName: Build UsageChecker

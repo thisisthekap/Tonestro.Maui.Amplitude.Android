@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>Tonestro.Maui.Amplitude.Android</PackageId>
+    <Version>2.31.4.1</Version>
+    <Description>Contains bindings for https://developers.amplitude.com/docs/android</Description>
+    <Authors>Christian Kapplmüller</Authors>
+    <Company>fun.music IT GmbH</Company>
+    <PackageOutputPath>nugetoutput</PackageOutputPath>
+    <PackageLicensePath>..\LICENSE.txt</PackageLicensePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\android-sdk-2.31.4.aar" />
+    <JavaSourceJar Include="Jars\android-sdk-2.31.4-sources.jar" />
+  </ItemGroup>  
+  <ItemGroup>
+    <TransformFile Include="Transforms\Metadata.xml" />
+  </ItemGroup>  
+  <ItemGroup>
+    <PackageReference Include="Square.OkHttp3" Version="4.9.3.2" />
+  </ItemGroup>
+</Project>
